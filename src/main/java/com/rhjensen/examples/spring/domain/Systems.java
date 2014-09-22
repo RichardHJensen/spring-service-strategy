@@ -6,5 +6,5 @@ package com.rhjensen.examples.spring.domain;
  * Time: 2:39 PM
  */
 public enum Systems {
-    SystemOne
+    NONE, SystemOne, SystemTwo
 }

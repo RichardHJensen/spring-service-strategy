@@ -1,6 +1,7 @@
 package com.rhjensen.examples.spring.strategies;
 
 import com.rhjensen.examples.spring.domain.Systems;
+import org.joda.time.LocalDate;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -21,6 +22,11 @@ public class SystemOneChooserTest {
     private class SystemOneChooser implements SystemChooser {
         @Override
         public Systems chooseSystem() {
+            return Systems.SystemOne;
+        }
+
+        @Override
+        public Systems chooseSystem(LocalDate localDate) {
             return Systems.SystemOne;
         }
     }

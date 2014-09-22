@@ -1,6 +1,7 @@
 package com.rhjensen.examples.spring.strategies;
 
 import com.rhjensen.examples.spring.domain.Systems;
+import org.joda.time.LocalDate;
 
 /**
  * User: rjensen
@@ -9,4 +10,6 @@ import com.rhjensen.examples.spring.domain.Systems;
  */
 public interface SystemChooser {
     Systems chooseSystem();
+
+    Systems chooseSystem(LocalDate localDate);
 }
