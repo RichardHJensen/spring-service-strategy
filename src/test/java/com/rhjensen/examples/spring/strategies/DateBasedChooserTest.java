@@ -35,15 +35,4 @@ public class DateBasedChooserTest {
         assertThat(chooser.chooseSystem(new LocalDate(2014, 12, 1)), is(Systems.SystemTwo));
     }
 
-    private class DateBasedChooser implements SystemChooser {
-        @Override
-        public Systems chooseSystem() {
-            return Systems.NONE;
-        }
-
-        @Override
-        public Systems chooseSystem(LocalDate localDate) {
-            return ((localDate.getMonthOfYear() % 2) == 1)?Systems.SystemOne:Systems.SystemTwo;
-        }
-    }
 }
