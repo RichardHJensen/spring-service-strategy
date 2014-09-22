@@ -1,6 +1,10 @@
 package com.rhjensen.examples.spring.strategies;
 
+import com.rhjensen.examples.spring.domain.Systems;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * User: rjensen
@@ -14,4 +18,10 @@ public class SystemOneChooserTest {
         assertThat(chooser.chooseSystem(), is(Systems.SystemOne));
     }
 
+    private class SystemOneChooser implements SystemChooser {
+        @Override
+        public Systems chooseSystem() {
+            return Systems.SystemOne;
+        }
+    }
 }
