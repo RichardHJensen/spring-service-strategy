@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="systemOneChooser" class="com.rhjensen.examples.spring.strategies.SystemOneChooser"/>
+    <bean id="dateBasedChooser" class="com.rhjensen.examples.spring.strategies.DateBasedChooser"/>
+
+    <bean id="classic" class="com.rhjensen.examples.spring.services.ClassicServiceOne"/>
+    <bean id="improved" class="com.rhjensen.examples.spring.services.ImprovedServiceOne"/>
+
+    <bean id="serviceOne" class="com.rhjensen.examples.spring.services.ServiceOneWrapper">
+        <constructor-arg ref="dateBasedChooser" />
+    </bean>
+
+</beans>
