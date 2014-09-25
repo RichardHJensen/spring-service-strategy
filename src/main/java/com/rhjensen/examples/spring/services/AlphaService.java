@@ -1,9 +1,7 @@
 package com.rhjensen.examples.spring.services;
 
 import com.rhjensen.examples.spring.strategies.SystemChooser;
-import com.rhjensen.examples.spring.strategies.SystemOneChooser;
 import org.joda.time.LocalDate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**

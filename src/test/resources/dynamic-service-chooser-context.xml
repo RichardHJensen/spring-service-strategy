@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="defaultChooser" class="com.rhjensen.examples.spring.strategies.DefaultChooser"/>
+    <bean id="systemOneChooser" class="com.rhjensen.examples.spring.strategies.SystemOneChooser"/>
+    <bean id="dateBasedChooser" class="com.rhjensen.examples.spring.strategies.DateBasedChooser"/>
+
+    <bean id="classicOne" class="com.rhjensen.examples.spring.services.ClassicServiceOne"/>
+    <bean id="improvedOne" class="com.rhjensen.examples.spring.services.ImprovedServiceOne"/>
+
+    <bean id="serviceChooser" class="com.rhjensen.examples.spring.strategies.DynamicSystemChooser">
+        <property name="chooserMap">
+            <map>
+                <entry key="serviceOne" value-ref="dateBasedChooser"/>
+                <entry key="serviceTwo" value-ref="systemOneChooser"/>
+            </map>
+        </property>
+        <property name="defaultChooser" ref="defaultChooser"/>
+    </bean>
+
+    <bean id="serviceOne" class="com.rhjensen.examples.spring.services.DynamicServiceOneWrapper">
+        <property name="endpointMap">
+            <map key-type="com.rhjensen.examples.spring.domain.Systems">
+                <entry key="NONE" value-ref="classicOne"/>
+                <entry key="SystemOne" value-ref="classicOne"/>
+                <entry key="SystemTwo" value-ref="improvedOne"/>
+            </map>
+        </property>
+    </bean>
+</beans>
